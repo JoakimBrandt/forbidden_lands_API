@@ -1,4 +1,4 @@
-FROM node:11.4.0
+FROM node:latest
 
 WORKDIR /server
 
@@ -6,6 +6,4 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
