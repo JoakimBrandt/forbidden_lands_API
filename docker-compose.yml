@@ -1,0 +1,9 @@
+version: "1"
+
+services:
+  node:
+    container_name: node-server
+    restart: always
+    build: ./server
+    ports:
+      - "8080:8080"
