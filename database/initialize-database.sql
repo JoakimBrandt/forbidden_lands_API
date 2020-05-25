@@ -1,13 +1,15 @@
 CREATE TABLE functions (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(45) NOT NULL,
-  amount INT NOT NULL
+  amount INT NOT NULL,
+  CONSTRAINT functionNameUnique UNIQUE (name)
 );
 
 CREATE TABLE resources (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(45) NOT NULL,
-  amount INT NOT NULL
+  amount INT NOT NULL,
+  CONSTRAINT resourceNameUnique UNIQUE (name)
 );
 
 CREATE TABLE servants (
@@ -16,8 +18,6 @@ CREATE TABLE servants (
   salary INT NOT NULL,
   amount INT NOT NULL,
   production_amount INT,
-  production_type VARCHAR(45)
+  production_type VARCHAR(45),
+  CONSTRAINT servantNameUnique UNIQUE (name)
 );
-
-
-insert into servants (name, salary, amount, production_amount, production_type) values ("stenhuggare", 3, 6, 4, "sten")
