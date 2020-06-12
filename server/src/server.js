@@ -41,10 +41,22 @@ container.register('resourcesRepository', awilix.asFunction(resourcesRepository)
 container.register('resources', awilix.asFunction(resourcesRouter))
 const resourcesApi = container.resolve('resources')
 
+// KEEPS
+const keepsRouter = require('./routers/keeps-router')
+const keepsManager = require('./bll/keeps-manager')
+const keepsRepository = require('./dal/keeps-repository')
+container.register('keepsRouter', awilix.asFunction(keepsRouter))
+container.register('keepsManager', awilix.asFunction(keepsManager))
+container.register('keepsRepository', awilix.asFunction(keepsRepository))
+container.register('keeps', awilix.asFunction(keepsRouter))
+const keepsApi = container.resolve('keeps')
+
 // LAUNCH
 app.use('/resources', resourcesApi)
 app.use('/functions', functionsApi)
 app.use('/servants', servantsApi)
+app.use('/keeps', keepsApi)
+
 app.listen(port, () => {
     console.log("App listening on port")
 })

@@ -21,3 +21,10 @@ CREATE TABLE servants (
   production_type VARCHAR(45),
   CONSTRAINT servantNameUnique UNIQUE (name)
 );
+
+CREATE TABLE keeps (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(45) NOT NULL,
+  treasury INT,
+  CONSTRAINT keepNameUnique UNIQUE (name)
+);
